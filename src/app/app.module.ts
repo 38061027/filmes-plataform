@@ -3,14 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FilmesModule } from './filmes/filmes.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RodapeComponent } from './shared/components/rodape/rodape.component';
+import { TabelaComponent } from './shared/components/tabela/tabela.component';
+import { TopoComponent } from './shared/components/topo/topo.component';
+import { MaterialModule } from './shared/material/material.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RodapeComponent,
+    TabelaComponent,
+    TopoComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FilmesModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
