@@ -1,15 +1,40 @@
 <mat-toolbar class="app-title">Cadastrar Filme</mat-toolbar>
 <div class="main-div">
-  <form [formGroup]="cadastro" (ngSubmit)="salvar()" (ngReset)="reiniciarForm()">
+  <form
+    [formGroup]="cadastro"
+    (ngSubmit)="salvar()"
+    (ngReset)="reiniciarForm()"
+  >
     <mat-card class="center width50">
       <mat-card-content>
         <mat-form-field class="full-width">
           <input
             matInput
-            placeholder="Título"
+            placeholder="Título *"
             name="titulo"
             formControlName="titulo"
           />
+          <mat-error
+            *ngIf="
+            (cadastro.get('titulo')?.touched || cadastro.get('titulo')?.dirty) &&
+          cadastro.get('titulo')?.hasError('required')
+            "
+            >Campo obrigatório</mat-error
+          >
+          <mat-error
+            *ngIf="
+            (cadastro.get('titulo')?.touched || cadastro.get('titulo')?.dirty) &&
+            cadastro.get('titulo')?.hasError('minlength')
+            "
+            >Campo precisa ter no mínimo 2 caracteres</mat-error
+          >
+          <mat-error
+            *ngIf="
+            (cadastro.get('titulo')?.touched || cadastro.get('titulo')?.dirty) &&
+    cadastro.get('titulo')?.hasError('maxlength')
+            "
+            >Campo pode ter no máximo 256 caracteres</mat-error
+          >
         </mat-form-field>
         <mat-form-field class="full-width">
           <input
@@ -18,20 +43,36 @@
             name="urlFoto"
             formControlName="urlFoto"
           />
+          <mat-error
+            *ngIf="
+            (cadastro.get('urlFoto')?.touched || cadastro.get('urlFoto')?.dirty) &&
+            cadastro.get('urlFoto')?.hasError('minlength')
+            "
+            >Campo precisa ter no mínimo 10 caracteres</mat-error
+          >
         </mat-form-field>
         <mat-form-field class="full-width">
           <input
+            readonly
             matInput
             [matDatepicker]="picker"
-            placeholder="Data de Lançamento"
+            placeholder="Data de Lançamento *"
             name="dtLancamento"
             formControlName="dtLancamento"
+            (click)="picker.open()"
           />
           <mat-datepicker-toggle
             matSuffix
             [for]="picker"
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+          <mat-error
+          *ngIf="
+          (cadastro.get('dtLancamento')?.touched || cadastro.get('dtLancamento')?.dirty) &&
+        cadastro.get('dtLancamento')?.hasError('required')
+          "
+          >Campo obrigatório</mat-error
+        >
         </mat-form-field>
         <mat-form-field class="full-width">
           <textarea
@@ -48,10 +89,32 @@
             min="0"
             max="10"
             step="0.5"
-            placeholder="Nota IMDb"
+            placeholder="Nota IMDb *"
             name="nota"
             formControlName="nota"
           />
+
+          <mat-error
+            *ngIf="
+            (cadastro.get('nota')?.touched || cadastro.get('nota')?.dirty) &&
+          cadastro.get('nota')?.hasError('required')
+            "
+            >Campo obrigatório</mat-error
+          >
+          <mat-error
+            *ngIf="
+            (cadastro.get('nota')?.touched || cadastro.get('nota')?.dirty) &&
+            cadastro.get('nota')?.hasError('min')
+            "
+            >Campo precisa ter no mínimo o valor 0</mat-error
+          >
+          <mat-error
+            *ngIf="
+            (cadastro.get('nota')?.touched || cadastro.get('nota')?.dirty) &&
+    cadastro.get('nota')?.hasError('max')
+            "
+            >Campo pode ter no máximo o valor 10</mat-error
+          >
         </mat-form-field>
         <mat-form-field class="full-width">
           <input
@@ -60,10 +123,17 @@
             name="urlIMDb"
             formControlName="urlIMDb"
           />
+          <mat-error
+          *ngIf="
+          (cadastro.get('urlIMDb')?.touched || cadastro.get('urlIMDb')?.dirty) &&
+          cadastro.get('urlIMDb')?.hasError('minlength')
+          "
+          >Campo precisa ter no mínimo 10 caracteres</mat-error
+        >
         </mat-form-field>
         <mat-form-field class="full-width">
           <mat-select
-            placeholder="Gênero"
+            placeholder="Gênero *"
             name="genero"
             formControlName="genero"
           >
@@ -75,6 +145,13 @@
             <mat-option value="Romance">Romance</mat-option>
             <mat-option value="Terror">Terror</mat-option>
           </mat-select>
+          <mat-error
+          *ngIf="
+          (cadastro.get('genero')?.touched || cadastro.get('genero')?.dirty) &&
+        cadastro.get('genero')?.hasError('required')
+          "
+          >Campo obrigatório</mat-error
+        >
         </mat-form-field>
       </mat-card-content>
       <mat-card-actions>
