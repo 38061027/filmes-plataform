@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidarCamposService } from 'src/app/shared/components/campos/validar-campos.service';
 
 @Component({
   selector: 'app-cadastro-filmes',
@@ -10,8 +11,11 @@ export class CadastroFilmesComponent implements OnInit{
 
 
   cadastro!: FormGroup;
+  generos!: Array<string>
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+      public validacao: ValidarCamposService
+    ) { }
 
 
 
@@ -26,6 +30,9 @@ export class CadastroFilmesComponent implements OnInit{
    urlIMDb: ['', [Validators.minLength(10)]],
    genero: ['', [Validators.required]]
     });
+
+    this.generos = ['Ação', 'Romance', 'Aventura', 'Terror', 'Ficção cientifica', 'Comédia', 'Drama']
+
 
   }
 

@@ -1,158 +1,77 @@
 <mat-toolbar class="app-title">Cadastrar Filme</mat-toolbar>
 <div class="main-div">
   <form
+  autocomplete="off"
+  novalidate
     [formGroup]="cadastro"
     (ngSubmit)="salvar()"
     (ngReset)="reiniciarForm()"
   >
     <mat-card class="center width50">
       <mat-card-content>
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            placeholder="Título *"
-            name="titulo"
-            formControlName="titulo"
-          />
-          <mat-error
-            *ngIf="
-            (cadastro.get('titulo')?.touched || cadastro.get('titulo')?.dirty) &&
-          cadastro.get('titulo')?.hasError('required')
-            "
-            >Campo obrigatório</mat-error
-          >
-          <mat-error
-            *ngIf="
-            (cadastro.get('titulo')?.touched || cadastro.get('titulo')?.dirty) &&
-            cadastro.get('titulo')?.hasError('minlength')
-            "
-            >Campo precisa ter no mínimo 2 caracteres</mat-error
-          >
-          <mat-error
-            *ngIf="
-            (cadastro.get('titulo')?.touched || cadastro.get('titulo')?.dirty) &&
-    cadastro.get('titulo')?.hasError('maxlength')
-            "
-            >Campo pode ter no máximo 256 caracteres</mat-error
-          >
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            placeholder="Link Foto"
-            name="urlFoto"
-            formControlName="urlFoto"
-          />
-          <mat-error
-            *ngIf="
-            (cadastro.get('urlFoto')?.touched || cadastro.get('urlFoto')?.dirty) &&
-            cadastro.get('urlFoto')?.hasError('minlength')
-            "
-            >Campo precisa ter no mínimo 10 caracteres</mat-error
-          >
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input
-            readonly
-            matInput
-            [matDatepicker]="picker"
-            placeholder="Data de Lançamento *"
-            name="dtLancamento"
-            formControlName="dtLancamento"
-            (click)="picker.open()"
-          />
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error
-          *ngIf="
-          (cadastro.get('dtLancamento')?.touched || cadastro.get('dtLancamento')?.dirty) &&
-        cadastro.get('dtLancamento')?.hasError('required')
-          "
-          >Campo obrigatório</mat-error
-        >
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <textarea
-            matInput
-            placeholder="Descrição"
-            name="descricao"
-            formControlName="descricao"
-          ></textarea>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            type="number"
-            min="0"
-            max="10"
-            step="0.5"
-            placeholder="Nota IMDb *"
-            name="nota"
-            formControlName="nota"
-          />
 
-          <mat-error
-            *ngIf="
-            (cadastro.get('nota')?.touched || cadastro.get('nota')?.dirty) &&
-          cadastro.get('nota')?.hasError('required')
-            "
-            >Campo obrigatório</mat-error
-          >
-          <mat-error
-            *ngIf="
-            (cadastro.get('nota')?.touched || cadastro.get('nota')?.dirty) &&
-            cadastro.get('nota')?.hasError('min')
-            "
-            >Campo precisa ter no mínimo o valor 0</mat-error
-          >
-          <mat-error
-            *ngIf="
-            (cadastro.get('nota')?.touched || cadastro.get('nota')?.dirty) &&
-    cadastro.get('nota')?.hasError('max')
-            "
-            >Campo pode ter no máximo o valor 10</mat-error
-          >
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            placeholder="Link IMDb"
-            name="urlIMDb"
-            formControlName="urlIMDb"
-          />
-          <mat-error
-          *ngIf="
-          (cadastro.get('urlIMDb')?.touched || cadastro.get('urlIMDb')?.dirty) &&
-          cadastro.get('urlIMDb')?.hasError('minlength')
-          "
-          >Campo precisa ter no mínimo 10 caracteres</mat-error
+        <app-input-text titulo="titulo *"
+        [formGroup]="cadastro"
+        controlName="titulo"
         >
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <mat-select
-            placeholder="Gênero *"
-            name="genero"
-            formControlName="genero"
+        </app-input-text>
+
+          <app-input-text titulo="Link Foto"
+          [formGroup]="cadastro"
+          controlName="urlFoto"
           >
-            <mat-option value="Ação">Açao</mat-option>
-            <mat-option value="Aventura">Aventura</mat-option>
-            <mat-option value=">Ficção Científica"
-              >Ficção Científica</mat-option
-            >
-            <mat-option value="Romance">Romance</mat-option>
-            <mat-option value="Terror">Terror</mat-option>
-          </mat-select>
-          <mat-error
-          *ngIf="
-          (cadastro.get('genero')?.touched || cadastro.get('genero')?.dirty) &&
-        cadastro.get('genero')?.hasError('required')
-          "
-          >Campo obrigatório</mat-error
+          </app-input-text>
+
+
+       <app-input-date
+       titulo="Data de lançamento"
+          [formGroup]="cadastro"
+          controlName="dtLancamento"
+       >
+
+       </app-input-date>
+
+        <app-input-textarea
+
+        titulo="Descricao"
+        [formGroup]="cadastro"
+        controlName="descricao"
         >
-        </mat-form-field>
+
+        </app-input-textarea>
+
+
+
+
+          <app-input-number
+
+          titulo="nota IMDb*"
+          [formGroup]="cadastro"
+          controlName="nota"
+        step="0.5"
+          >
+
+          </app-input-number>
+
+
+
+
+          <app-input-text titulo="Link IMDb"
+          [formGroup]="cadastro"
+          controlName="urlIMDb"
+          >
+          </app-input-text>
+
+
+          <app-input-select
+          titulo="Gênero *"
+          [formGroup]="cadastro"
+          controlName="genero"
+          [opcoes]="generos"
+          >
+
+          </app-input-select>
+
       </mat-card-content>
       <mat-card-actions>
         <button type="submit" color="accent" mat-raised-button>Salvar</button>

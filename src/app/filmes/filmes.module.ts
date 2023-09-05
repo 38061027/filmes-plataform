@@ -5,6 +5,7 @@ import { ListagemFilmesComponent } from './listagem-filmes/listagem-filmes.compo
 import { MaterialModule } from '../shared/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CamposModule } from '../shared/components/campos/campos.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CamposModule,
+
   ]
 })
 export class FilmesModule { }
