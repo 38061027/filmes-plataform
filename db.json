@@ -109,6 +109,16 @@
       "urlIMDb": "https://www.imdb.com/title/tt2527338/?ref_=vi_md_ti",
       "genero": "Aventura",
       "id": 11
+    },
+    {
+      "titulo": "A Freira 2",
+      "urlFoto": "https://www.imdb.com/video/vi2879899417/?playlistId=tt10160976&ref_=tt_ov_vi",
+      "dtLancamento": "2023-09-07T03:00:00.000Z",
+      "descricao": "França, 1956. Um padre é assassinado. Um mal está se espalhando. A sequência de The Nun (2018) segue a irmã Irene quando ela mais uma vez fica cara a cara com a força demoníaca Valak, a Freira.",
+      "nota": 6,
+      "urlIMDb": "https://www.imdb.com/title/tt10160976/?ref_=hm_inth_tt_i_1",
+      "genero": "Terror",
+      "id": 12
     }
   ]
 }
