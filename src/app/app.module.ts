@@ -12,6 +12,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertaComponent } from './shared/components/alerta/alerta.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     RodapeComponent,
     TabelaComponent,
     TopoComponent,
+    AlertaComponent,
 
   ],
   imports: [
@@ -31,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt' }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+
 })
 export class AppModule { }

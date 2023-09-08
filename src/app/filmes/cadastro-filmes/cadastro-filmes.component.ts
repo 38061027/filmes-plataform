@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { FilmesService } from 'src/app/core/filmes.service';
+import { AlertaComponent } from 'src/app/shared/components/alerta/alerta.component';
 import { ValidarCamposService } from 'src/app/shared/components/campos/validar-campos.service';
+import { Alerta } from 'src/app/shared/models/alerta';
 import { Filme } from 'src/app/shared/models/filme';
 
 @Component({
@@ -18,7 +22,9 @@ export class CadastroFilmesComponent implements OnInit{
   constructor(
     private filmesService: FilmesService,
     private fb: FormBuilder,
-      public validacao: ValidarCamposService
+    private router: Router,
+      public validacao: ValidarCamposService,
+      public dialog: MatDialog
     ) { }
 
 
@@ -63,10 +69,33 @@ this.cadastro.reset()
 
 private salvar(filme:Filme):void{
   this.filmesService.salvar(filme).subscribe(()=>{
-    alert('sucesso')
+    const config = {
+      data:{
+        btnSucesso: 'Ir para a listagem',
+        btnCancelar: 'Cadastrar um novo filme',
+        corBtnCancelar: 'primary',
+        possuirBtnFechar: true
+      } as Alerta
+    }
+    const dialogRef = this.dialog.open(AlertaComponent, config)
+    dialogRef.afterClosed().subscribe((opcao:boolean)=>{
+      if(opcao){
+        this.router.navigateByUrl('filmes')
+      }else{
+        this.reiniciarForm()
+      }
+    });
   },
   () =>{
-    alert('erro ao salvar')
+    const config = {
+      data:{
+        titulo: 'Error ao salvar o registro',
+        descricao: 'Não conseguimos salvar seu resgistor, favor tentar novamente mais tarde',
+        corBtnSucesso: 'warn',
+        btnSucesso: 'Fechar',
+      } as Alerta
+    }
+    this.dialog.open(AlertaComponent, config)
   });
 }
 

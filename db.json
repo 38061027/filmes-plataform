@@ -119,6 +119,46 @@
       "urlIMDb": "https://www.imdb.com/title/tt10160976/?ref_=hm_inth_tt_i_1",
       "genero": "Terror",
       "id": 12
+    },
+    {
+      "titulo": "test",
+      "urlFoto": "",
+      "dtLancamento": "2023-09-11T03:00:00.000Z",
+      "descricao": "",
+      "nota": 0,
+      "urlIMDb": "",
+      "genero": "Ficção cientifica",
+      "id": 13
+    },
+    {
+      "titulo": "dawwa",
+      "urlFoto": "",
+      "dtLancamento": "2023-09-26T03:00:00.000Z",
+      "descricao": "",
+      "nota": 0,
+      "urlIMDb": "",
+      "genero": "Aventura",
+      "id": 14
+    },
+    {
+      "titulo": "fgsdfg",
+      "urlFoto": "",
+      "dtLancamento": "2023-09-18T03:00:00.000Z",
+      "descricao": "",
+      "nota": 0,
+      "urlIMDb": "",
+      "genero": "Ficção cientifica",
+      "id": 15
+    },
+    {
+      "titulo": "sfesfse",
+      "urlFoto": "",
+      "dtLancamento": "2023-09-27T03:00:00.000Z",
+      "descricao": "",
+      "nota": 0,
+      "urlIMDb": "",
+      "genero": "Terror",
+      "id": 16
     }
   ]
 }
