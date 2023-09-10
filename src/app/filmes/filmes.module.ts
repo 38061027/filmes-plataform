@@ -6,12 +6,12 @@ import { MaterialModule } from '../shared/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CamposModule } from '../shared/components/campos/campos.module';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 @NgModule({
   declarations: [
     CadastroFilmesComponent,
     ListagemFilmesComponent,
-
   ],
   imports: [
     CommonModule,
@@ -19,6 +19,7 @@ import { CamposModule } from '../shared/components/campos/campos.module';
     FormsModule,
     ReactiveFormsModule,
     CamposModule,
+    InfiniteScrollModule
 
   ]
 })
