@@ -7,11 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CamposModule } from '../shared/components/campos/campos.module';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import { VizualizarFilmesComponent } from './vizualizar-filmes/vizualizar-filmes.component';
+;
 
 @NgModule({
   declarations: [
     CadastroFilmesComponent,
     ListagemFilmesComponent,
+    VizualizarFilmesComponent,
+
   ],
   imports: [
     CommonModule,
@@ -22,5 +26,6 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
     InfiniteScrollModule
 
   ]
+
 })
 export class FilmesModule { }
