@@ -109,7 +109,16 @@
       "urlIMDb": "https://www.imdb.com/title/tt2527338/?ref_=vi_md_ti",
       "genero": "Aventura",
       "id": 11
+    },
+    {
+      "titulo": "filme sem descrição e foto",
+      "urlFoto": "",
+      "dtLancamento": "2023-09-21T03:00:00.000Z",
+      "descricao": "",
+      "nota": 10,
+      "urlIMDb": "",
+      "genero": "Terror",
+      "id": 12
     }
-
   ]
 }
